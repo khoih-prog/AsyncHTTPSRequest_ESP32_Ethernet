@@ -475,7 +475,7 @@ week_number: 50
 
 #### 2. AsyncHTTPSRequest_ESP32_SC_ENC using ESP32S3_DEV with ESP32_S3_ENC28J60
 
-Following is the debug terminal when running example [AsyncHTTPSRequest_ESP32_SC_ENC](examples/AsyncHTTPSRequest_ESP32_SC_ENC) on `ESP32S3_DEV` to demonstrate the operation of SSL Async HTTPS request, using [AsyncTCP_SSL Library](https://github.com/khoih-prog/AsyncTCP_SSL) with `LwIP ENC28J60 Ethernet`
+Following is the debug terminal when running example [AsyncHTTPSRequest_ESP32_SC_ENC](examples/ESP32_SC_ENC/AsyncHTTPSRequest_ESP32_SC_ENC) on `ESP32S3_DEV` to demonstrate the operation of SSL Async HTTPS request, using [AsyncTCP_SSL Library](https://github.com/khoih-prog/AsyncTCP_SSL) with `LwIP ENC28J60 Ethernet`
 
 ```cpp
 Starting AsyncHTTPSRequest_ESP32_SC_ENC using ESP32S3_DEV with ESP32_S3_ENC28J60
