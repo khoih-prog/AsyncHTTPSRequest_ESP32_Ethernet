@@ -44,8 +44,8 @@
   #error This AsyncHTTPSRequest_ESP32_Ethernet library is currently supporting only ESP32 using LwIP Ethernet
 #endif
 
-#define ASYNC_HTTPS_REQUEST_ESP32_ETHERNET_VERSION_MIN_TARGET      "AsyncHTTPSRequest_ESP32_Ethernet v2.4.0"
-#define ASYNC_HTTPS_REQUEST_ESP32_ETHERNET_VERSION_MIN             2004000
+#define ASYNC_HTTPS_REQUEST_ESP32_ETHERNET_VERSION_MIN_TARGET      "AsyncHTTPSRequest_ESP32_Ethernet v2.5.0"
+#define ASYNC_HTTPS_REQUEST_ESP32_ETHERNET_VERSION_MIN             2005000
 
 /////////////////////////////////////////////////////////
 
@@ -78,9 +78,9 @@
 
 //////////////////////////////////////////////////////////
 
+// For ESP32-S3
 // Optional values to override default settings
-// Don't change unless you know what you're doing
-//#define ETH_SPI_HOST        SPI3_HOST
+//#define ETH_SPI_HOST        SPI2_HOST
 //#define SPI_CLOCK_MHZ       25
 
 // Must connect INT to GPIOxx or not working
@@ -90,6 +90,20 @@
 //#define MOSI_GPIO           11
 //#define SCK_GPIO            12
 //#define CS_GPIO             10
+
+// For ESP32_C3
+// Optional values to override default settings
+// Don't change unless you know what you're doing
+//#define ETH_SPI_HOST        SPI2_HOST
+//#define SPI_CLOCK_MHZ       25
+
+// Must connect INT to GPIOxx or not working
+//#define INT_GPIO            10
+
+//#define MISO_GPIO           5
+//#define MOSI_GPIO           6
+//#define SCK_GPIO            4
+//#define CS_GPIO             7
 
 //////////////////////////////////////////////////////////
 

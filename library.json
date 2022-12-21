@@ -1,6 +1,6 @@
 {
   "name":"AsyncHTTPSRequest_ESP32_Ethernet",
-  "version": "2.4.0",
+  "version": "2.5.0",
   "description":"Simple Async HTTPS Request library, supporting GET, POST, PUT, PATCH, DELETE and HEAD, on top of AsyncTCP_SSL library for ESP32/S2/S3/C3, WT32_ETH01 (ESP32 + LAN8720), ESP32 using LwIP ENC28J60, W5500 or LAN8720",
   "keywords":"communication, async, tcp, http, https, ssl, tls, esp32, esp32-s2, esp32-s3, esp32-c3, wt32-eth01, ethernet, w5500, enc28j60, lan8720, lwip, lwip-ethernet, lwip-enc28j60, lwip-w5500, lwip-lan8720",
   "authors": [
@@ -57,13 +57,13 @@
     {
       "owner": "khoih-prog",
       "name": "WebServer_ESP32_SC_ENC",
-      "version": ">=1.0.0",
+      "version": ">=1.2.0",
       "platforms": ["espressif32"]
     },
     {
       "owner": "khoih-prog",
       "name": "WebServer_ESP32_SC_W5500",
-      "version": ">=1.0.1",
+      "version": ">=1.2.0",
       "platforms": ["espressif32"]
     }
   ],

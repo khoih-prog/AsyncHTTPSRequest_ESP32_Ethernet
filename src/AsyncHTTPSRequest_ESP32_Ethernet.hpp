@@ -18,11 +18,12 @@
   You should have received a copy of the GNU General Public License along with this program.
   If not, see <https://www.gnu.org/licenses/>.
 
-  Version: 2.4.0
+  Version: 2.5.0
 
   Version Modified By   Date      Comments
   ------- -----------  ---------- -----------
   2.4.0    K Hoang     16/12/2022 Initial coding to port to ESP32S3 boards using LwIP W5500 or ENC28J60 Ethernet
+  2.5.0    K Hoang     21/12/2022 Add support to ESP32S2/C3 boards using LwIP W5500 or ENC28J60 Ethernet
  *****************************************************************************************************************************/
 
 #pragma once
@@ -38,13 +39,13 @@
 
 ////////////////////////////////////////
 
-#define ASYNC_HTTPS_REQUEST_ESP32_ETHERNET_VERSION             "AsyncHTTPSRequest_ESP32_Ethernet v2.4.0"
+#define ASYNC_HTTPS_REQUEST_ESP32_ETHERNET_VERSION             "AsyncHTTPSRequest_ESP32_Ethernet v2.5.0"
 
 #define ASYNC_HTTPS_REQUEST_ESP32_ETHERNET_VERSION_MAJOR       2
-#define ASYNC_HTTPS_REQUEST_ESP32_ETHERNET_VERSION_MINOR       4
+#define ASYNC_HTTPS_REQUEST_ESP32_ETHERNET_VERSION_MINOR       5
 #define ASYNC_HTTPS_REQUEST_ESP32_ETHERNET_VERSION_PATCH       0
 
-#define ASYNC_HTTPS_REQUEST_ESP32_ETHERNET_VERSION_INT         2004000
+#define ASYNC_HTTPS_REQUEST_ESP32_ETHERNET_VERSION_INT         2005000
 
 ////////////////////////////////////////
 

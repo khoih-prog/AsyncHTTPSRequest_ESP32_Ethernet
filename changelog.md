@@ -17,12 +17,17 @@
 ## Table of Contents
 
 * [Changelog](#changelog)
+	* [Releases v2.5.0](#releases-v250)
 	* [Releases v2.4.0](#releases-v240)
 
 ---
 ---
 
 ## Changelog
+
+### Releases v2.5.0
+
+1. Add support to `ESP32S2/C3` boards using `LwIP W5500 or ENC28J60 Ethernet`
 
 ### Releases v2.4.0
 

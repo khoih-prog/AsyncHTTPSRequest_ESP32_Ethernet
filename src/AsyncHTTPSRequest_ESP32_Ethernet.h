@@ -18,11 +18,12 @@
   You should have received a copy of the GNU General Public License along with this program.
   If not, see <https://www.gnu.org/licenses/>.
 
-  Version: 2.4.0
+  Version: 2.5.0
 
   Version Modified By   Date      Comments
   ------- -----------  ---------- -----------
   2.4.0    K Hoang     16/12/2022 Initial coding to port to ESP32S3 boards using LwIP W5500 or ENC28J60 Ethernet
+  2.5.0    K Hoang     21/12/2022 Add support to ESP32S2/C3 boards using LwIP W5500 or ENC28J60 Ethernet
  *****************************************************************************************************************************/
 
 #pragma once
