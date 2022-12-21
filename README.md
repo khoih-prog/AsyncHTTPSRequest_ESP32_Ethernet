@@ -34,7 +34,7 @@
   * [1. ESP32 has 2 ADCs, named ADC1 and ADC2](#1--esp32-has-2-adcs-named-adc1-and-adc2)
   * [2. ESP32 ADCs functions](#2-esp32-adcs-functions)
   * [3. ESP32 WiFi uses ADC2 for WiFi functions](#3-esp32-wifi-uses-adc2-for-wifi-functions)
-* [How to connect W5500 or ENC28J60 to ESP32_S3](#How-to-connect-W5500-or-ENC28J60-to-ESP32_S3)
+* [How to connect W5500 or ENC28J60 to ESP32_S2/S3/C3](#How-to-connect-W5500-or-ENC28J60-to-ESP32_S2S3C3)
 * [Examples](#examples)
   * [For WT32_ETH01](#For-WT32_ETH01)
     * [1. AsyncHTTPSRequest_WT32_ETH01](examples/WT32_ETH01/AsyncHTTPSRequest_WT32_ETH01)
@@ -142,6 +142,13 @@ This library is based on, modified from:
 
 1. **ESP32-S3 (ESP32S3_DEV, ESP32_S3_BOX, UM TINYS3, UM PROS3, UM FEATHERS3, etc.)**
 
+#### 4. ESP32S2 using LwIP ENC28J60 or W5500
+
+1. **ESP32-S2 (ESP32S2_DEV, etc.)**
+
+#### 5. ESP32C3 using LwIP ENC28J60 or W5500
+
+1. **ESP32-C3 (ESP32C3_DEV, etc.)**
 
 --- 
 
@@ -149,7 +156,21 @@ This library is based on, modified from:
 
 <p align="center">
     <img src="https://github.com/khoih-prog/AsyncHTTPSRequest_ESP32_Ethernet/raw/main/Images/ESP32S3_DEV.png">
+</p>
+
+#### ESP32S2_DEV
+
+<p align="center">
+    <img src="https://github.com/khoih-prog/AsyncHTTPSRequest_ESP32_Ethernet/raw/main/Images/ESP32S2_DEV.png">
 </p> 
+
+
+#### ESP32C3_DEV
+
+<p align="center">
+    <img src="https://github.com/khoih-prog/AsyncHTTPSRequest_ESP32_Ethernet/raw/main/Images/ESP32_C3_DevKitC_02.png">
+</p> 
+
 
 ---
 
@@ -181,10 +202,7 @@ This library is based on, modified from:
 
 ### To-be Supported Boards
 
-#### 1. ESP32S2/C3 using LwIP ENC28J60 or W5500
-
-1. **ESP32-S2 (ESP32-S2 Saola, AI-Thinker ESP-12K, etc.)**
-2. **ESP32-C3 (ARDUINO_ESP32C3_DEV, etc.)**
+#### 1. New ESP32 using LwIP ENC28J60 or W5500
 
 
 ---
@@ -198,8 +216,8 @@ This library is based on, modified from:
  4. [`WebServer_WT32_ETH01 v1.5.1+`](https://github.com/khoih-prog/WebServer_WT32_ETH01) for ESP32-based WT32_ETH01 using **either ESP32 core v2.0.0+ or v1.0.6-**. [![GitHub release](https://img.shields.io/github/release/khoih-prog/WebServer_WT32_ETH01.svg)](https://github.com/khoih-prog/WebServer_WT32_ETH01/releases)
  5. [`WebServer_ESP32_ENC v1.5.1+`](https://github.com/khoih-prog/WebServer_ESP32_ENC) for ESP32 boards using `LwIP ENC28J60 Ethernet`. [![GitHub release](https://img.shields.io/github/release/khoih-prog/WebServer_ESP32_ENC.svg)](https://github.com/khoih-prog/WebServer_ESP32_ENC/releases)
  6. [`WebServer_ESP32_W5500 v1.5.1+`](https://github.com/khoih-prog/WebServer_ESP32_W5500) for ESP32 boards using `LwIP W5500 Ethernet`. [![GitHub release](https://img.shields.io/github/release/khoih-prog/WebServer_ESP32_W5500.svg)](https://github.com/khoih-prog/WebServer_ESP32_W5500/releases)
- 7. [`WebServer_ESP32_SC_ENC library v1.0.0+`](https://github.com/khoih-prog/WebServer_ESP32_SC_ENC) if necessary to use `ESP32_S2/S3/C3` boards using `LwIP ENC28J60` Ethernet. To install, check [![arduino-library-badge](https://www.ardu-badge.com/badge/WebServer_ESP32_SC_ENC.svg?)](https://www.ardu-badge.com/WebServer_ESP32_SC_ENC)
- 8. [`WebServer_ESP32_SC_W5500 library v1.0.1+`](https://github.com/khoih-prog/WebServer_ESP32_SC_W5500) if necessary to use `ESP32_S2/S3/C3` boards using `LwIP W5500` Ethernet. To install, check [![arduino-library-badge](https://www.ardu-badge.com/badge/WebServer_ESP32_SC_W5500.svg?)](https://www.ardu-badge.com/WebServer_ESP32_SC_W5500)
+ 7. [`WebServer_ESP32_SC_ENC library v1.2.0+`](https://github.com/khoih-prog/WebServer_ESP32_SC_ENC) if necessary to use `ESP32_S2/S3/C3` boards using `LwIP ENC28J60` Ethernet. To install, check [![arduino-library-badge](https://www.ardu-badge.com/badge/WebServer_ESP32_SC_ENC.svg?)](https://www.ardu-badge.com/WebServer_ESP32_SC_ENC)
+ 8. [`WebServer_ESP32_SC_W5500 library v1.2.0+`](https://github.com/khoih-prog/WebServer_ESP32_SC_W5500) if necessary to use `ESP32_S2/S3/C3` boards using `LwIP W5500` Ethernet. To install, check [![arduino-library-badge](https://www.ardu-badge.com/badge/WebServer_ESP32_SC_W5500.svg?)](https://www.ardu-badge.com/WebServer_ESP32_SC_W5500)
 
 
 
@@ -317,24 +335,7 @@ Look in file [**adc_common.c**](https://github.com/espressif/esp-idf/blob/master
 ---
 ---
 
-### How to connect W5500 or ENC28J60 to ESP32_S3
-
-You can change the `INT` pin to another one. Default is `GPIO4`
-
-```cpp
-// Must connect INT to GPIOxx or not working
-#define INT_GPIO            4
-```
-
----
-
-#### ESP32S3_DEV
-
-<p align="center">
-    <img src="https://github.com/khoih-prog/AsyncHTTPSRequest_ESP32_Ethernet/raw/main/Images/ESP32S3_DEV.png">
-</p> 
-
----
+### How to connect W5500 or ENC28J60 to ESP32_S2/S3/C3
 
 
 #### W5500
@@ -353,7 +354,23 @@ You can change the `INT` pin to another one. Default is `GPIO4`
     <img src="https://github.com/khoih-prog/AsyncHTTPSRequest_ESP32_Ethernet/raw/main/Images/ENC28J60.png">
 </p>
  
+
 ---
+
+#### ESP32S3_DEV
+
+
+<p align="center">
+    <img src="https://github.com/khoih-prog/AsyncHTTPSRequest_ESP32_Ethernet/raw/main/Images/ESP32S3_DEV.png">
+</p> 
+
+
+You can change the `INT` pin to another one. Default is `GPIO4`
+
+```cpp
+// Must connect INT to GPIOxx or not working
+#define INT_GPIO            4
+```
 
 |W5500 or ENC28J60|<--->|ESP32_S3|
 |:-:|:-:|:-:|
@@ -362,6 +379,62 @@ You can change the `INT` pin to another one. Default is `GPIO4`
 |SCK|<--->|GPIO12|
 |SS|<--->|GPIO10|
 |INT|<--->|GPIO4|
+|RST|<--->|RST|
+|GND|<--->|GND|
+|3.3V|<--->|3.3V|
+
+---
+
+#### ESP32S2_DEV
+
+
+<p align="center">
+    <img src="https://github.com/khoih-prog/AsyncHTTPSRequest_ESP32_Ethernet/raw/main/Images/ESP32S2_DEV.png">
+</p> 
+
+
+You can change the `INT` pin to another one. Default is `GPIO4`
+
+```cpp
+// Must connect INT to GPIOxx or not working
+#define INT_GPIO            4
+```
+
+|W5500 or ENC28J60|<--->|ESP32_S2|
+|:-:|:-:|:-:|
+|MOSI|<--->|GPIO35|
+|MISO|<--->|GPIO37|
+|SCK|<--->|GPIO36|
+|SS|<--->|GPIO34|
+|INT|<--->|GPIO4|
+|RST|<--->|RST|
+|GND|<--->|GND|
+|3.3V|<--->|3.3V|
+
+
+---
+
+#### ESP32C3_DEV
+
+<p align="center">
+    <img src="https://github.com/khoih-prog/AsyncHTTPSRequest_ESP32_Ethernet/raw/main/Images/ESP32_C3_DevKitC_02.png">
+</p> 
+
+
+You can change the `INT` pin to another one. Default is `GPIO4`
+
+```cpp
+// Must connect INT to GPIOxx or not working
+#define INT_GPIO            10
+```
+
+|W5500 or ENC28J60|<--->|ESP32_C3|
+|:-:|:-:|:-:|
+|MOSI|<--->|GPIO6|
+|MISO|<--->|GPIO5|
+|SCK|<--->|GPIO4|
+|SS|<--->|GPIO7|
+|INT|<--->|GPIO10|
 |RST|<--->|RST|
 |GND|<--->|GND|
 |3.3V|<--->|3.3V|
@@ -401,7 +474,7 @@ You can change the `INT` pin to another one. Default is `GPIO4`
 
 ### Example [AsyncHTTPSRequest_ESP32_SC_W5500](examples/ESP32_SC_W5500/AsyncHTTPSRequest_ESP32_SC_W5500)
 
-https://github.com/khoih-prog/AsyncHTTPSRequest_ESP32_Ethernet/blob/6de53c59c443c8488783cf9b07c04307305358a7/examples/ESP32_SC_W5500/AsyncHTTPSRequest_ESP32_SC_W5500/AsyncHTTPSRequest_ESP32_SC_W5500.ino#L43-L288
+https://github.com/khoih-prog/AsyncHTTPSRequest_ESP32_Ethernet/blob/ad9a1a9a23194eec5f7a6bba28aa3634e491d8fc/examples/ESP32_SC_W5500/AsyncHTTPSRequest_ESP32_SC_W5500/AsyncHTTPSRequest_ESP32_SC_W5500.ino#L43-L302
 
 
 ---
@@ -415,9 +488,9 @@ Following is the debug terminal when running example [AsyncHTTPSRequest_ESP32_SC
 
 ```cpp
 Starting AsyncHTTPSRequest_ESP32_SC_W5500 using ESP32S3_DEV with ESP32_S3_W5500
-WebServer_ESP32_SC_W5500 v1.0.1 for core v2.0.0+
+WebServer_ESP32_SC_W5500 v1.2.0 for core v2.0.0+
 AsyncTCP_SSL v1.3.1
-AsyncHTTPSRequest_ESP32_Ethernet v2.4.0
+AsyncHTTPSRequest_ESP32_Ethernet v2.5.0
 [AHTTPS] Default SPI pinout:
 [AHTTPS] SPI_HOST: 2
 [AHTTPS] MOSI: 11
@@ -435,40 +508,23 @@ FULL_DUPLEX, 100Mbps
 
 HTTP WebClient is @ IP : 192.168.2.95
 
+
 **************************************
 abbreviation: EST
-client_ip: aaa.bbb.ccc.ddd
-datetime: 2022-12-16T23:26:15.413376-05:00
-day_of_week: 5
-day_of_year: 350
+client_ip: 216.154.12.9
+datetime: 2022-12-21T14:19:48.946055-05:00
+day_of_week: 3
+day_of_year: 355
 dst: false
 dst_from: 
 dst_offset: 0
 dst_until: 
 raw_offset: -18000
 timezone: America/Toronto
-unixtime: 1671251175
-utc_datetime: 2022-12-17T04:26:15.413376+00:00
+unixtime: 1671650388
+utc_datetime: 2022-12-21T19:19:48.946055+00:00
 utc_offset: -05:00
-week_number: 50
-**************************************
-HHHHHH
-**************************************
-abbreviation: EST
-client_ip: aaa.bbb.ccc.ddd
-datetime: 2022-12-16T23:27:14.649457-05:00
-day_of_week: 5
-day_of_year: 350
-dst: false
-dst_from: 
-dst_offset: 0
-dst_until: 
-raw_offset: -18000
-timezone: America/Toronto
-unixtime: 1671251234
-utc_datetime: 2022-12-17T04:27:14.649457+00:00
-utc_offset: -05:00
-week_number: 50
+week_number: 51
 **************************************
 ```
 ---
@@ -479,9 +535,9 @@ Following is the debug terminal when running example [AsyncHTTPSRequest_ESP32_SC
 
 ```cpp
 Starting AsyncHTTPSRequest_ESP32_SC_ENC using ESP32S3_DEV with ESP32_S3_ENC28J60
-WebServer_ESP32_SC_ENC v1.0.0 for core v2.0.0+
+WebServer_ESP32_SC_ENC v1.2.0 for core v2.0.0+
 AsyncTCP_SSL v1.3.1
-AsyncHTTPSRequest_ESP32_Ethernet v2.4.0
+AsyncHTTPSRequest_ESP32_Ethernet v2.5.0
 [AHTTPS] Default SPI pinout:
 [AHTTPS] SPI_HOST: 1
 [AHTTPS] MOSI: 11
@@ -502,20 +558,20 @@ HTTP WebClient is @ IP : 192.168.2.105
 **************************************
 abbreviation: EST
 client_ip: aaa.bbb.ccc.ddd
-datetime: 2022-12-16T23:30:47.857990-05:00
-day_of_week: 5
-day_of_year: 350
+datetime: 2022-12-21T13:56:53.698949-05:00
+day_of_week: 3
+day_of_year: 355
 dst: false
 dst_from: 
 dst_offset: 0
 dst_until: 
 raw_offset: -18000
 timezone: America/Toronto
-unixtime: 1671251447
-utc_datetime: 2022-12-17T04:30:47.857990+00:00
+unixtime: 1671649013
+utc_datetime: 2022-12-21T18:56:53.698949+00:00
 utc_offset: -05:00
-week_number: 50
-***********************************
+week_number: 51
+**************************************
 ```
 
 ---
@@ -529,7 +585,7 @@ Following is the debug terminal when running example [AsyncHTTPSRequest_ESP32_W5
 Starting AsyncHTTPSRequest_ESP32_W5500 using ESP32_DEV with ESP32_W5500
 WebServer_ESP32_W5500 v1.5.1 for core v2.0.0+
 AsyncTCP_SSL v1.3.1
-AsyncHTTPSRequest_ESP32_Ethernet v2.4.0
+AsyncHTTPSRequest_ESP32_Ethernet v2.5.0
 [AHTTPS] Default SPI pinout:
 [AHTTPS] SPI_HOST: 2
 [AHTTPS] MOSI: 11
@@ -550,37 +606,19 @@ HTTP WebClient is @ IP : 192.168.2.103
 **************************************
 abbreviation: EST
 client_ip: aaa.bbb.ccc.ddd
-datetime: 2022-12-16T23:30:47.857990-05:00
-day_of_week: 5
-day_of_year: 350
+datetime: 2022-12-21T13:52:23.014447-05:00
+day_of_week: 3
+day_of_year: 355
 dst: false
 dst_from: 
 dst_offset: 0
 dst_until: 
 raw_offset: -18000
 timezone: America/Toronto
-unixtime: 1671251447
-utc_datetime: 2022-12-17T04:30:47.857990+00:00
+unixtime: 1671648743
+utc_datetime: 2022-12-21T18:52:23.014447+00:00
 utc_offset: -05:00
-week_number: 50
-**************************************
-HHHHHH
-**************************************
-abbreviation: EST
-client_ip: aaa.bbb.ccc.ddd
-datetime: 2022-12-16T23:31:46.039426-05:00
-day_of_week: 5
-day_of_year: 350
-dst: false
-dst_from: 
-dst_offset: 0
-dst_until: 
-raw_offset: -18000
-timezone: America/Toronto
-unixtime: 1671251506
-utc_datetime: 2022-12-17T04:31:46.039426+00:00
-utc_offset: -05:00
-week_number: 50
+week_number: 51
 **************************************
 ```
 
@@ -595,7 +633,7 @@ Following is the debug terminal when running example [AsyncHTTPSRequest_ESP32_EN
 Starting AsyncHTTPSRequest_ESP32_ENC using ESP32_DEV with ESP32_ENC28J60
 WebServer_ESP32_ENC v1.5.1 for core v2.0.0+
 AsyncTCP_SSL v1.3.1
-AsyncHTTPSRequest_ESP32_Ethernet v2.4.0
+AsyncHTTPSRequest_ESP32_Ethernet v2.5.0
 [AHTTPS] Default SPI pinout:
 [AHTTPS] SPI_HOST: 1
 [AHTTPS] MOSI: 11
@@ -616,40 +654,189 @@ HTTP WebClient is @ IP : 192.168.2.95
 **************************************
 abbreviation: EST
 client_ip: aaa.bbb.ccc.ddd
-datetime: 2022-12-16T23:34:46.042102-05:00
-day_of_week: 5
-day_of_year: 350
+datetime: 2022-12-21T13:51:23.978371-05:00
+day_of_week: 3
+day_of_year: 355
 dst: false
 dst_from: 
 dst_offset: 0
 dst_until: 
 raw_offset: -18000
 timezone: America/Toronto
-unixtime: 1671251686
-utc_datetime: 2022-12-17T04:34:46.042102+00:00
+unixtime: 1671648683
+utc_datetime: 2022-12-21T18:51:23.978371+00:00
 utc_offset: -05:00
-week_number: 50
-**************************************
-HHHHHH 
-**************************************
-abbreviation: EST
-client_ip: aaa.bbb.ccc.ddd
-datetime: 2022-12-16T23:35:46.044102-05:00
-day_of_week: 5
-day_of_year: 350
-dst: false
-dst_from: 
-dst_offset: 0
-dst_until: 
-raw_offset: -18000
-timezone: America/Toronto
-unixtime: 1671251746
-utc_datetime: 2022-12-17T04:35:46.044102+00:00
-utc_offset: -05:00
-week_number: 50
+week_number: 51
 **************************************
 ```
 
+
+---
+
+#### 5. AsyncHTTPSRequest_ESP32_SC_W5500 using ESP32C3_DEV with ESP32_C3_W5500
+
+Following is the debug terminal when running example [AsyncHTTPSRequest_ESP32_SC_W5500](examples/ESP32_SC_W5500/AsyncHTTPSRequest_ESP32_SC_W5500) on `ESP32C3_DEV` to demonstrate the operation of SSL Async HTTPS request, using [AsyncTCP_SSL Library](https://github.com/khoih-prog/AsyncTCP_SSL),  with `LwIP W5500 Ethernet`
+
+
+```cpp
+Starting AsyncHTTPSRequest_ESP32_SC_W5500 using ESP32C3_DEV with ESP32_C3_W5500
+WebServer_ESP32_SC_W5500 v1.2.0 for core v2.0.0+
+AsyncTCP_SSL v1.3.1
+AsyncHTTPSRequest_ESP32_Ethernet v2.5.0
+[AHTTPS] Default SPI pinout:
+[AHTTPS] SPI_HOST: 1
+[AHTTPS] MOSI: 6
+[AHTTPS] MISO: 5
+[AHTTPS] SCK: 4
+[AHTTPS] CS: 7
+[AHTTPS] INT: 10
+[AHTTPS] SPI Clock (MHz): 25
+[AHTTPS] =========================
+Using built-in mac_eth = 7C:DF:A1:BC:BC:53
+
+ETH Started
+ETH Connected
+ETH MAC: 7C:DF:A1:BC:BC:53, IPv4: 192.168.2.135
+FULL_DUPLEX, 100Mbps
+
+HTTP WebClient is @ IP : 192.168.2.135
+
+**************************************
+abbreviation: EST
+client_ip: aaa.bbb.ccc.ddd
+datetime: 2022-12-21T13:51:23.978371-05:00
+day_of_week: 3
+day_of_year: 355
+dst: false
+dst_from: 
+dst_offset: 0
+dst_until: 
+raw_offset: -18000
+timezone: America/Toronto
+unixtime: 1671648683
+utc_datetime: 2022-12-21T18:51:23.978371+00:00
+utc_offset: -05:00
+week_number: 51
+**************************************
+HHHHHH
+**************************************
+abbreviation: EST
+client_ip: aaa.bbb.ccc.ddd
+datetime: 2022-12-21T13:52:23.014447-05:00
+day_of_week: 3
+day_of_year: 355
+dst: false
+dst_from: 
+dst_offset: 0
+dst_until: 
+raw_offset: -18000
+timezone: America/Toronto
+unixtime: 1671648743
+utc_datetime: 2022-12-21T18:52:23.014447+00:00
+utc_offset: -05:00
+week_number: 51
+**************************************
+```
+
+
+---
+
+#### 6. AsyncHTTPSRequest_ESP32_SC_ENC using ESP32C3_DEV with ESP32_C3_ENC28J60
+
+Following is the debug terminal when running example [AsyncHTTPSRequest_ESP32_SC_ENC](examples/ESP32_SC_ENC/AsyncHTTPSRequest_ESP32_SC_ENC) on `ESP32C3_DEV` to demonstrate the operation of SSL Async HTTPS request, using [AsyncTCP_SSL Library](https://github.com/khoih-prog/AsyncTCP_SSL),  with `LwIP ENC28J60 Ethernet`
+
+
+```cpp
+Starting AsyncHTTPSRequest_ESP32_SC_ENC using ESP32C3_DEV with ESP32_C3_ENC28J60
+WebServer_ESP32_SC_ENC v1.2.0 for core v2.0.0+
+AsyncTCP_SSL v1.3.1
+AsyncHTTPSRequest_ESP32_Ethernet v2.5.0
+[AHTTPS] Default SPI pinout:
+[AHTTPS] SPI_HOST: 1
+[AHTTPS] MOSI: 6
+[AHTTPS] MISO: 5
+[AHTTPS] SCK: 4
+[AHTTPS] CS: 7
+[AHTTPS] INT: 10
+[AHTTPS] SPI Clock (MHz): 8
+[AHTTPS] =========================
+Using built-in mac_eth = 7C:DF:A1:DA:66:87
+
+ETH Started
+ETH Connected
+ETH MAC: 7C:DF:A1:DA:66:87, IPv4: 192.168.2.136
+FULL_DUPLEX, 10Mbps
+
+HTTP WebClient is @ IP : 192.168.2.136
+
+**************************************
+abbreviation: EST
+client_ip: aaa.bbb.ccc.ddd
+datetime: 2022-12-21T13:56:53.698949-05:00
+day_of_week: 3
+day_of_year: 355
+dst: false
+dst_from: 
+dst_offset: 0
+dst_until: 
+raw_offset: -18000
+timezone: America/Toronto
+unixtime: 1671649013
+utc_datetime: 2022-12-21T18:56:53.698949+00:00
+utc_offset: -05:00
+week_number: 51
+**************************************
+```
+
+
+---
+
+#### 7. AsyncHTTPSRequest_ESP32_SC_W5500 using ESP32S2_DEV with ESP32_S2_W5500
+
+Following is the debug terminal when running example [AsyncHTTPSRequest_ESP32_SC_W5500](examples/ESP32_SC_W5500/AsyncHTTPSRequest_ESP32_SC_W5500) on `ESP32S2_DEV` to demonstrate the operation of SSL Async HTTPS request, using [AsyncTCP_SSL Library](https://github.com/khoih-prog/AsyncTCP_SSL),  with `LwIP W5500 Ethernet`
+
+
+```cpp
+Starting AsyncHTTPSRequest_ESP32_SC_W5500 using ESP32S2_DEV with ESP32_S2_W5500
+WebServer_ESP32_SC_W5500 v1.2.0 for core v2.0.0+
+AsyncTCP_SSL v1.3.1
+AsyncHTTPSRequest_ESP32_Ethernet v2.5.0
+[AHTTPS] Default SPI pinout:
+[AHTTPS] SPI_HOST: 2
+[AHTTPS] MOSI: 35
+[AHTTPS] MISO: 37
+[AHTTPS] SCK: 36
+[AHTTPS] CS: 34
+[AHTTPS] INT: 4
+[AHTTPS] SPI Clock (MHz): 25
+[AHTTPS] =========================
+Using built-in mac_eth = 7E:DF:A1:08:32:C9
+
+ETH Started
+ETH Connected
+ETH MAC: 7E:DF:A1:08:32:C9, IPv4: 192.168.2.133
+FULL_DUPLEX, 100Mbps
+
+HTTP WebClient is @ IP : 192.168.2.133
+
+**************************************
+abbreviation: EST
+client_ip: aaa.bbb.ccc.ddd
+datetime: 2022-12-21T14:05:00.047039-05:00
+day_of_week: 3
+day_of_year: 355
+dst: false
+dst_from: 
+dst_offset: 0
+dst_until: 
+raw_offset: -18000
+timezone: America/Toronto
+unixtime: 1671649500
+utc_datetime: 2022-12-21T19:05:00.047039+00:00
+utc_offset: -05:00
+week_number: 51
+**************************************
+```
 ---
 ---
 
@@ -689,7 +876,6 @@ Submit issues to: [AsyncHTTPSRequest_ESP32_Ethernet issues](https://github.com/k
 
  1. Fix bug. Add enhancement
  2. Add support to more `LwIP Ethernet` shields
- 3. Add support to more boards, such as `ESP32_S2` and `ESP32_C3`
  
  ---
 
@@ -698,7 +884,7 @@ Submit issues to: [AsyncHTTPSRequest_ESP32_Ethernet issues](https://github.com/k
  1. Initially add support to `ESP32/S2/S3/C3` boards using `LwIP W5500 / ENC28J60 / LAN8720 Ethernet`
  2. Sync with [AsyncHTTPSRequest_Generic v2.4.0](https://github.com/khoih-prog/AsyncHTTPSRequest_Generic)
  3. Use `allman astyle` and add `utils`. Restyle the library
-
+ 4. Add support to `ESP32S2/C3` boards using `LwIP W5500 or ENC28J60 Ethernet`
 
 ---
 ---
