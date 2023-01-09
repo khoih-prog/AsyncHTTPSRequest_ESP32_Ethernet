@@ -643,10 +643,10 @@ AsyncHTTPSRequest_ESP32_Ethernet v2.6.0
 
 ETH Started
 ETH Connected
-ETH MAC: DE:AD:BE:EF:BE:12, IPv4: 192.168.2.103
+ETH MAC: 0C:B8:15:D8:01:D7, IPv4: 192.168.2.158
 FULL_DUPLEX, 100Mbps
 
-HTTP WebClient is @ IP : 192.168.2.103
+HTTP WebClient is @ IP : 192.168.2.158
 
 **************************************
 abbreviation: EST
@@ -691,10 +691,10 @@ AsyncHTTPSRequest_ESP32_Ethernet v2.6.0
 
 ETH Started
 ETH Connected
-ETH MAC: DE:AD:BE:EF:FE:01, IPv4: 192.168.2.95
+ETH MAC: 0C:B8:15:D8:01:D7, IPv4: 192.168.2.158
 FULL_DUPLEX, 10Mbps
 
-HTTP WebClient is @ IP : 192.168.2.95
+HTTP WebClient is @ IP : 192.168.2.158
 
 **************************************
 abbreviation: EST
@@ -978,7 +978,6 @@ ETH MAC: 0C:B8:15:D8:01:D7, IPv4: 192.168.2.158
 FULL_DUPLEX, 100Mbps
 
 HTTP WebClient is @ IP : 192.168.2.158
-
 
 **************************************
 abbreviation: EST
