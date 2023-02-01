@@ -18,12 +18,14 @@
   You should have received a copy of the GNU General Public License along with this program.
   If not, see <https://www.gnu.org/licenses/>.
 
-  Version: 2.5.0
+  Version: 2.7.0
 
   Version Modified By   Date      Comments
   ------- -----------  ---------- -----------
   2.4.0    K Hoang     16/12/2022 Initial coding to port to ESP32S3 boards using LwIP W5500 or ENC28J60 Ethernet
   2.5.0    K Hoang     21/12/2022 Add support to ESP32S2/C3 boards using LwIP W5500 or ENC28J60 Ethernet
+  2.6.0    K Hoang     09/01/2023 Add support to `ESP32` and `ESP32S2/S3/C3` boards using `LwIP W6100 Ethernet`
+  2.7.0    K Hoang     01/02/2023 Fix wrong reqStates and `_parseURL()` bugs
  *****************************************************************************************************************************/
 
 #pragma once
@@ -1221,11 +1223,28 @@ bool  AsyncHTTPSRequest::_parseURL(const String& url)
 
   int pathBeg = url.indexOf('/', hostBeg);
 
+  int hostEnd;
+  int portBeg;
+  
   if (pathBeg < 0)
-    return false;
+  {
+    if ( url.indexOf(':', hostBeg) < 0 )
+    {
+      // No port, just https://www.aaa.com
+      hostEnd = url.length();
+    }
+    else
+    {
+      // with port, https://www.aaa.com:443
+      hostEnd = url.indexOf(':', hostBeg);
+    }
+  }
+  else
+  {
+    hostEnd = pathBeg;
+  }
 
-  int hostEnd = pathBeg;
-  int portBeg = url.indexOf(':', hostBeg);
+  portBeg = url.indexOf(':', hostBeg);
 
   if (portBeg > 0 && portBeg < pathBeg)
   {
@@ -1386,8 +1405,7 @@ size_t  AsyncHTTPSRequest::_send()
   if ( ! _client->connected())
   {
     // KH fix bug https://github.com/khoih-prog/AsyncHTTPRequest_Generic/issues/38
-    _HTTPcode = HTTPCODE_NOT_CONNECTED;
-    _setReadyState(readyStateUnsent);
+    _timeout = DEFAULT_RX_TIMEOUT;
     ///////////////////////////
 
     return 0;

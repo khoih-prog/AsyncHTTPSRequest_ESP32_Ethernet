@@ -44,8 +44,8 @@
   #error This AsyncHTTPSRequest_ESP32_Ethernet library is currently supporting only ESP32 using LwIP Ethernet
 #endif
 
-#define ASYNC_HTTPS_REQUEST_ESP32_ETHERNET_VERSION_MIN_TARGET      "AsyncHTTPSRequest_ESP32_Ethernet v2.6.0"
-#define ASYNC_HTTPS_REQUEST_ESP32_ETHERNET_VERSION_MIN             2006000
+#define ASYNC_HTTPS_REQUEST_ESP32_ETHERNET_VERSION_MIN_TARGET      "AsyncHTTPSRequest_ESP32_Ethernet v2.7.0"
+#define ASYNC_HTTPS_REQUEST_ESP32_ETHERNET_VERSION_MIN             2007000
 
 /////////////////////////////////////////////////////////
 

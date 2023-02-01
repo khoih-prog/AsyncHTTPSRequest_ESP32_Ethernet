@@ -16,8 +16,8 @@
   #error This code is intended to run on the ESP32 platform! Please check your Tools->Board setting.
 #endif
 
-#define ASYNC_HTTPS_REQUEST_ESP32_ETHERNET_VERSION_MIN_TARGET      "AsyncHTTPSRequest_ESP32_Ethernet v2.4.0"
-#define ASYNC_HTTPS_REQUEST_ESP32_ETHERNET_VERSION_MIN             2004000
+#define ASYNC_HTTPS_REQUEST_ESP32_ETHERNET_VERSION_MIN_TARGET      "AsyncHTTPSRequest_ESP32_Ethernet v2.7.0"
+#define ASYNC_HTTPS_REQUEST_ESP32_ETHERNET_VERSION_MIN             2007000
 
 /////////////////////////////////////////////////////////
 

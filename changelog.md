@@ -17,6 +17,7 @@
 ## Table of Contents
 
 * [Changelog](#changelog)
+	* [Releases v2.7.0](#releases-v270)
 	* [Releases v2.6.0](#releases-v260)
 	* [Releases v2.5.0](#releases-v250)
 	* [Releases v2.4.0](#releases-v240)
@@ -25,6 +26,12 @@
 ---
 
 ## Changelog
+
+### Releases v2.7.0
+
+1. Fix wrong `reqStates` bug. Check [Callback behavior buggy #19](https://github.com/khoih-prog/AsyncHTTPSRequest_Generic/issues/19)
+2. Fix `_parseURL()` bug. Check [Bug with _parseURL() #21](https://github.com/khoih-prog/AsyncHTTPSRequest_Generic/issues/21)
+3. Improve `README.md` so that links can be used in other sites, such as `PIO`
 
 ### Releases v2.6.0
 

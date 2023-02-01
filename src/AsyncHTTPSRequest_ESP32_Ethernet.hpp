@@ -18,12 +18,14 @@
   You should have received a copy of the GNU General Public License along with this program.
   If not, see <https://www.gnu.org/licenses/>.
 
-  Version: 2.5.0
+  Version: 2.7.0
 
   Version Modified By   Date      Comments
   ------- -----------  ---------- -----------
   2.4.0    K Hoang     16/12/2022 Initial coding to port to ESP32S3 boards using LwIP W5500 or ENC28J60 Ethernet
   2.5.0    K Hoang     21/12/2022 Add support to ESP32S2/C3 boards using LwIP W5500 or ENC28J60 Ethernet
+  2.6.0    K Hoang     09/01/2023 Add support to `ESP32` and `ESP32S2/S3/C3` boards using `LwIP W6100 Ethernet`
+  2.7.0    K Hoang     01/02/2023 Fix wrong reqStates and `_parseURL()` bugs
  *****************************************************************************************************************************/
 
 #pragma once
@@ -39,13 +41,13 @@
 
 ////////////////////////////////////////
 
-#define ASYNC_HTTPS_REQUEST_ESP32_ETHERNET_VERSION             "AsyncHTTPSRequest_ESP32_Ethernet v2.5.0"
+#define ASYNC_HTTPS_REQUEST_ESP32_ETHERNET_VERSION             "AsyncHTTPSRequest_ESP32_Ethernet v2.7.0"
 
 #define ASYNC_HTTPS_REQUEST_ESP32_ETHERNET_VERSION_MAJOR       2
-#define ASYNC_HTTPS_REQUEST_ESP32_ETHERNET_VERSION_MINOR       5
+#define ASYNC_HTTPS_REQUEST_ESP32_ETHERNET_VERSION_MINOR       7
 #define ASYNC_HTTPS_REQUEST_ESP32_ETHERNET_VERSION_PATCH       0
 
-#define ASYNC_HTTPS_REQUEST_ESP32_ETHERNET_VERSION_INT         2005000
+#define ASYNC_HTTPS_REQUEST_ESP32_ETHERNET_VERSION_INT         2007000
 
 ////////////////////////////////////////
 
@@ -224,7 +226,9 @@ class xbuf: public Print
 
 ////////////////////////////////////////
 
-#define DEFAULT_RX_TIMEOUT           30				// Seconds for timeout
+#if !defined(DEFAULT_RX_TIMEOUT)
+	#define DEFAULT_RX_TIMEOUT 					30					// Seconds for timeout
+#endif
 
 ////////////////////////////////////////
 

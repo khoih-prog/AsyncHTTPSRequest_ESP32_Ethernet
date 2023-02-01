@@ -10,6 +10,8 @@ However, before reporting a bug please check through the following:
 
 If you don't find anything, please [open a new issue](https://github.com/khoih-prog/AsyncHTTPSRequest_ESP32_Ethernet/issues/new).
 
+---
+
 ### How to submit a bug report
 
 Please ensure to specify the following:
@@ -35,7 +37,7 @@ Arduino IDE version: 1.8.19
 ESP32S3_DEV board
 ESP32 core v2.0.6
 OS: Ubuntu 20.04 LTS
-Linux xy-Inspiron-3593 5.15.0-57-generic #63~20.04.1-Ubuntu SMP Wed Nov 30 13:40:16 UTC 2022 x86_64 x86_64 x86_64 GNU/Linux
+Linux xy-Inspiron-3593 5.15.0-58-generic #64~20.04.1-Ubuntu SMP Fri Jan 6 16:42:31 UTC 2023 x86_64 x86_64 x86_64 GNU/Linux
 
 Context:
 I encountered a crash while using this library
